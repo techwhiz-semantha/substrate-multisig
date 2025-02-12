@@ -11,6 +11,10 @@ print(f"chain endpoint: {chain_endpoint}")
 substrate = SubstrateInterface(url=os.getenv("CHAIN_ENDPOINT"))
 
 
+def get_substrate() -> SubstrateInterface:
+    return substrate
+
+
 def get_keypair(seed_phrase: str) -> Keypair:
     return Keypair.create_from_mnemonic(seed_phrase)
 
