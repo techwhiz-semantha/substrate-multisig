@@ -27,7 +27,7 @@ if __name__ == "__main__":
     withdrawal_wallet, team_wallets = get_team_wallets(
         TEAM_WALLET_SEED_PHRASE, sequence
     )
-    print(f"{'Withdrawal Wallet:':<25} {withdrawal_wallet.ss58_address}")
+    print(f"Withdrawal Wallet: {withdrawal_wallet.ss58_address:<25}")
     print("Team Wallets:")
     for account in team_wallets:
         print(f"{'':<5}- {account.ss58_address}")
@@ -38,7 +38,7 @@ if __name__ == "__main__":
         threshold=int(MULTISIG_THRESHOLD),
     )
     print(
-        f"{'Multisig Account:':<25} ({MULTISIG_THRESHOLD}/{NUMBER_OF_TEAM_WALLETS}) {multisig_account.ss58_address}"
+        f"Multisig Account ({MULTISIG_THRESHOLD}/{NUMBER_OF_TEAM_WALLETS}): {multisig_account.ss58_address:<25}"
     )
 
     # todo: compose withdrawal call

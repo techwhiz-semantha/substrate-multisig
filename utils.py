@@ -5,10 +5,20 @@ import os
 
 load_dotenv()
 
+TYPE_REGISTRY = {
+    "types": {
+        "Balance": "u64",
+    }
+}
 
 chain_endpoint = os.getenv("CHAIN_ENDPOINT") or "wss://rpc.polkadot.io"
 print(f"chain endpoint: {chain_endpoint}")
-substrate = SubstrateInterface(url=os.getenv("CHAIN_ENDPOINT"))
+substrate = SubstrateInterface(
+    url=chain_endpoint,
+    ss58_format=42,  # SS58FORMAT
+    type_registry=TYPE_REGISTRY,
+    use_remote_preset=True,
+)
 
 
 def get_substrate() -> SubstrateInterface:
